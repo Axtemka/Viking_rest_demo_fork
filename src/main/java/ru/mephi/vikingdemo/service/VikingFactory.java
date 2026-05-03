@@ -19,12 +19,25 @@ public class VikingFactory {
 
     public Viking createRandomViking() {
         return new Viking(
+                null,
                 faker.name().firstName(),
                 18 + random.nextInt(43),
                 160 + random.nextInt(41),
                 HairColor.values()[random.nextInt(HairColor.values().length)],
                 BeardStyle.values()[random.nextInt(BeardStyle.values().length)],
                 createRandomEquipment()
+        );
+    }
+    
+    public Viking createCustomViking(Viking viking){
+        return new Viking(
+                viking.id(),
+                viking.name(),
+                viking.age(),
+                viking.heightCm(),
+                viking.hairColor(),
+                viking.beardStyle(),
+                viking.equipment()
         );
     }
 

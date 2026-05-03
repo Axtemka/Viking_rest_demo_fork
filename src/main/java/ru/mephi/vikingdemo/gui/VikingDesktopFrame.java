@@ -23,7 +23,7 @@ public class VikingDesktopFrame extends JFrame {
 
     public VikingDesktopFrame(VikingService vikingService) {
         this.vikingService = vikingService;
-
+        
         setTitle("Viking Demo");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(new Dimension(1000, 420));
@@ -55,6 +55,18 @@ public class VikingDesktopFrame extends JFrame {
     
     public void addNewViking(Viking viking){
         tableModel.addViking(viking);
+    }
+    
+    public void onDeleteViking(Integer vikingId){
+        tableModel.deleteViking(vikingId);
+    }
+    
+    public void onUpdateViking(Viking viking, boolean databaseIsChanged){
+        if (databaseIsChanged){
+            tableModel.updateViking(viking);
+        }else{
+            System.out.println("No update.");
+        }
     }
 
     private void onInit() {

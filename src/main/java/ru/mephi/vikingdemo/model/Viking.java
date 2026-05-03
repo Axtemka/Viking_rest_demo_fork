@@ -7,6 +7,8 @@ import java.util.List;
 
 @Schema(description = "Модель викинга")
 public record Viking(
+        @Schema(description = "Id викинга", example = "67")
+        Integer id,
         @Schema(description = "Имя викинга", example = "Bjorn")
         String name,
         @Schema(description = "Возраст", example = "31")

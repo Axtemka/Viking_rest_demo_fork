@@ -36,4 +36,13 @@ public class VikingService {
     public void deleteById(int id) {
         vikingStorage.deleteById(id);
     }
+    
+    public Viking createCustomViking(Viking viking){
+        Viking vikingCreated = vikingFactory.createCustomViking(viking);
+        return vikingStorage.save(vikingCreated);
+        
+    }
+    public boolean updateViking(Viking viking){
+        return vikingStorage.updateViking(viking);
+    }
 }
