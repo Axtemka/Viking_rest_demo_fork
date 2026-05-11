@@ -120,7 +120,7 @@ public class VikingDesktopFrame extends JFrame {
 
         report.append("Viking Statistics:\n");
         report.append(String.format(" - Braided Beards & Brown Hair: %d\n", vikingsColoredAndBearded));
-        report.append(String.format(" - Warriors wielding Axes: %d\n\n", vikingsWithAxes));
+        report.append(String.format(" - Vikings wielding Axes: %d\n\n", vikingsWithAxes));
 
         report.append("Legendary Heroes:\n");
         if (vikingOver180 != null) {
@@ -150,7 +150,7 @@ public class VikingDesktopFrame extends JFrame {
 
         report.append(" - Legendary Gear Vikings: " + legendaryVikingsReport + "\n");
 
-        report.append(" - Red Bearded Warriors (Oldest to Youngest):\n");
+        report.append(" - Red Bearded Vikings (Oldest to Youngest):\n");
         for (Viking v : vikingsWithRedBeardSortedByVikings) {
             report.append(String.format("   * %s (Age: %d)\n", v.name(), v.age()));
         }
