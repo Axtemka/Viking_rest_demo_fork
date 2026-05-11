@@ -31,11 +31,8 @@ public class VikingController {
     }
     
     @GetMapping
-    @Operation(summary = "Получить список созданных викингов", 
-            operationId = "getAllVikings")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Список успешно получен")
-    })
+    @Operation(summary = "Получить список созданных викингов", operationId = "getAllVikings")
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "Список успешно получен")})
     public List<Viking> getAllVikings() {
         System.out.println("GET /api/vikings called");
         return vikingService.findAll();

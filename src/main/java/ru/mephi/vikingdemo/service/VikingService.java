@@ -1,5 +1,7 @@
 package ru.mephi.vikingdemo.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.springframework.stereotype.Service;
 import ru.mephi.vikingdemo.model.Viking;
 
@@ -27,6 +29,12 @@ public class VikingService {
     
     public List<Viking> findAll() {
         return vikingStorage.findAll();
+    }
+    
+    public List<Viking> createRandomVikings(int lenght){
+        List<Viking> vikings = vikingFactory.createRandomVikings(lenght);
+        vikings.forEach(v -> vikingStorage.save(v));
+        return vikings;
     }
 
     public Viking createRandomViking() {
