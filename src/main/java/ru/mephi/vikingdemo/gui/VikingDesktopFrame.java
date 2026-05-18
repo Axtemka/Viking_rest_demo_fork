@@ -150,7 +150,7 @@ public class VikingDesktopFrame extends JFrame {
 
         report.append(" - Legendary Gear Vikings: " + legendaryVikingsReport + "\n");
 
-        report.append(" - Red Bearded Vikings (Oldest to Youngest):\n");
+        report.append(" - Red Bearded Vikings (Youngest to Oldest):\n");
         for (Viking v : vikingsWithRedBeardSortedByVikings) {
             report.append(String.format("   * %s (Age: %d)\n", v.name(), v.age()));
         }
