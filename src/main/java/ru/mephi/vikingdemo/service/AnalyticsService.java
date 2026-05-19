@@ -62,10 +62,12 @@ public class AnalyticsService {
     }
     
     public int countVikingsWithAxes(){
-        List<Viking> vikings = vikingStorage.findAll();
+        List<Viking> vikings = vikingStorage.findAll();       
         return (int) vikings.stream()
-                .filter(v -> v.equipment().stream()
-                        .anyMatch(i -> i.name().equals("Axe")))
+                .filter(v -> {
+                    int count = (int) v.equipment().stream().filter(e -> e.name().equals("Axe")).count();
+                    return count == 1 || count == 2;
+                })
                 .count();
     }
     
@@ -81,7 +83,7 @@ public class AnalyticsService {
         List<Viking> vikings = vikingStorage.findAll();
         return vikings.stream()
                 .filter(v -> v.equipment().stream()
-                        .allMatch(i -> i.quality().equals("Legendary")))
+                        .anyMatch(i -> i.quality().equals("Legendary")))
                 .toList();
     }
     
@@ -100,7 +102,9 @@ public class AnalyticsService {
     
     public List<Integer> getEvenIds(){
         List<Viking> vikings = vikingStorage.findAll();
-        return vikings.stream().filter(v -> (v.id() % 2 == 0)).map(Viking::id).toList();
+        return vikings.stream()
+                .map(Viking::id)
+                .filter(id -> id % 2 == 0)
+                .toList();
     }
-    
 }
